@@ -1,2 +1,6 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+</script>
+
+<div class="@container text-center">
+<h1 class="text-4xl md:text-5xl"><span class="hover:opacity-5">Shy Bridge</span></h1>
+</div>
