@@ -1,17 +1,26 @@
 <script>
 </script>
 
-<div class="@container text-center overflow-hidden">
+<div class="@container overflow-hidden text-center">
 	<h1 class="text-4xl md:text-5xl"><span class="hover:opacity-5">Shy Bridge</span></h1>
-	<div class="@container/full-bridge min-w-full flex flex-row" id="shy-bridge">
-		<img alt="Shy Bridge" class="mx-auto my-8 w-1/2 max-h-1/2" id="shy-bridge-half-1"
-		     src="/images/bridge-half-1.webp">
+	<div class="@container/full-bridge flex min-w-full flex-row" id="shy-bridge">
+		<img
+			alt="Shy Bridge"
+			class="mx-auto my-8 max-h-1/2 w-1/2"
+			id="shy-bridge-half-1"
+			src="/images/bridge-half-1.webp"
+		/>
 		<h2 class="text-4xl text-red-400" id="shy-text">I'm too shy sorry ~ :3</h2>
-		<img alt="Shy Bridge" class="mx-auto my-8 w-1/2 max-h-1/2" id="shy-bridge-half-2"
-		     src="/images/bridge-half-2.webp">
+		<img
+			alt="Shy Bridge"
+			class="mx-auto my-8 max-h-1/2 w-1/2"
+			id="shy-bridge-half-2"
+			src="/images/bridge-half-2.webp"
+		/>
 	</div>
 	<p class="text-lg md:text-xl">A bridge that is too shy to show itself.</p>
 </div>
+
 <style>
 	#shy-bridge #shy-bridge-half-1,
 	#shy-bridge #shy-bridge-half-2 {
