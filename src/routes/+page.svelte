@@ -1,9 +1,43 @@
 <script>
+	import { onDestroy } from "svelte";
+
+	let hovered = $state(false);
+	let showCensored = $state(false);
+	let timeoutId = null;
+
+	function handleMouseEnter() {
+		hovered = true;
+		showCensored = false; // hide immediately on hover
+		if (timeoutId) {
+			clearTimeout(timeoutId);
+			timeoutId = null;
+		}
+	}
+
+	function handleMouseLeave() {
+		hovered = false;
+		if (timeoutId) clearTimeout(timeoutId);
+		timeoutId = setTimeout(() => {
+			if (!hovered) {
+				showCensored = true; // show after 5s of no hover
+			}
+		}, 5000);
+	}
+
+	onDestroy(() => {
+		if (timeoutId) clearTimeout(timeoutId);
+	});
 </script>
 
 <div class="@container overflow-hidden text-center">
 	<h1 class="text-4xl md:text-5xl"><span class="hover:opacity-5">Shy Bridge</span></h1>
-	<div class="@container/full-bridge flex min-w-full flex-row" id="shy-bridge">
+	<div
+		class="@container/shy-bridge flex min-w-full flex-row"
+		id="shy-bridge"
+		onmouseenter={handleMouseEnter}
+		onmouseleave={handleMouseLeave}
+		role="region"
+	>
 		<img
 			alt="Shy Bridge"
 			class="mx-auto my-8 max-h-1/2 w-1/2"
@@ -11,6 +45,14 @@
 			src="/images/bridge-half-1.webp"
 		/>
 		<h2 class="text-4xl text-red-400" id="shy-text">I'm too shy sorry ~ :3</h2>
+		<img
+			id="censored"
+			src="/images/censored.webp"
+			alt="censored"
+			title="I'm too shy to be in front of you!"
+			class="mx-auto my-8 max-h-1/2 w-1/2"
+			style:opacity={showCensored ? 1 : 0}
+		/>
 		<img
 			alt="Shy Bridge"
 			class="mx-auto my-8 max-h-1/2 w-1/2"
@@ -38,6 +80,14 @@
 		transform: translate(-50%, -50%);
 		opacity: 0;
 		transition: opacity 1s ease;
+	}
+
+	#censored {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.3s ease;
 	}
 
 	#shy-bridge:hover #shy-text {
