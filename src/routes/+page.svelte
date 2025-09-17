@@ -1,6 +1,6 @@
 <script>
 	import { onDestroy } from "svelte";
-	import { ArrowRight } from "@lucide/svelte";
+	import { ArrowRight, ArrowLeft } from "@lucide/svelte";
 
 	let hovered = $state(false);
 	let showCensored = $state(false);
@@ -39,6 +39,17 @@
 		onmouseleave={handleMouseLeave}
 		role="region"
 	>
+		<button
+			id="arrow-left"
+			aria-label="Go to scene 99"
+			title="Go to scene 99"
+			class="rounded-xl bg-yellow-500 px-5 py-10 hover:scale-[1.03] hover:bg-yellow-600 hover:shadow-2xl"
+			onclick={() => {
+				window.location.href = "/scenes/99";
+			}}
+		>
+			<ArrowLeft />
+		</button>
 		<img
 			alt="Shy Bridge"
 			class="mx-auto my-8 max-h-1/2 w-1/2"
@@ -94,6 +105,15 @@
 		transition: opacity 1s ease;
 	}
 
+	#shy-bridge #arrow-left {
+		position: absolute;
+		top: 50%;
+		left: 10%;
+		transform: translate(-50%, -50%);
+		opacity: 0;
+		transition: opacity 0.5s ease;
+	}
+
 	#shy-bridge #arrow-right {
 		position: absolute;
 		top: 50%;
@@ -116,6 +136,10 @@
 	}
 
 	#shy-bridge:hover #arrow-right {
+		opacity: 1;
+	}
+
+	#shy-bridge:hover #arrow-left {
 		opacity: 1;
 	}
 
