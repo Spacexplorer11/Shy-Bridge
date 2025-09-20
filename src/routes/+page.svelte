@@ -1,6 +1,7 @@
 <script>
 	import { onDestroy } from "svelte";
-	import { ArrowRight, ArrowLeft } from "@lucide/svelte";
+	import { ArrowRight, ArrowLeft, ArrowDown } from "@lucide/svelte";
+	import Typewriter from "svelte-typewriter";
 
 	let hovered = $state(false);
 	let showCensored = $state(false);
@@ -31,7 +32,9 @@
 </script>
 
 <div class="@container overflow-hidden text-center">
-	<h1 class="text-4xl md:text-5xl"><span class="hover:opacity-5">Shy Bridge</span></h1>
+	<Typewriter>
+		<h1 class="text-4xl md:text-5xl"><span class="hover:opacity-5">Shy Bridge</span></h1>
+	</Typewriter>
 	<div
 		class="@container/shy-bridge flex min-w-full flex-row"
 		id="shy-bridge"
@@ -52,11 +55,11 @@
 		</button>
 		<img
 			alt="Shy Bridge"
-			class="mx-auto my-8 max-h-1/2 w-1/2"
+			class="mx-auto max-h-1/3 w-1/2"
 			id="shy-bridge-half-1"
 			src="/images/bridge-half-1.webp"
 		/>
-		<h2 class="text-4xl text-red-400" id="shy-text">I'm too shy sorry ~ :3</h2>
+		<h2 class="text-4xl text-red-400" id="shy-text">I'm too shy sorry ~ :(</h2>
 		<img
 			id="censored"
 			src="/images/censored.webp"
@@ -67,7 +70,7 @@
 		/>
 		<img
 			alt="Shy Bridge"
-			class="mx-auto my-8 max-h-1/2 w-1/2"
+			class="mx-auto max-h-1/3 w-1/2"
 			id="shy-bridge-half-2"
 			src="/images/bridge-half-2.webp"
 		/>
@@ -83,7 +86,29 @@
 			<ArrowRight />
 		</button>
 	</div>
-	<p class="text-lg md:text-xl">A bridge that is too shy to show itself.</p>
+
+	<div id="arrow-down" class="flex min-w-full items-center justify-center text-center">
+		<ArrowDown class="animate-bounce" size="50" />
+	</div>
+
+	<section id="lore">
+		<Typewriter delay="2000" mode="cascade">
+			<p class="m-2 text-2xl md:text-3xl">A bridge that is too shy to show itself.</p>
+			<p class="m-2 text-2xl md:text-3xl">Unfortunately it doesn't have much self-confidence</p>
+			<p class="m-2 text-2xl md:text-3xl">
+				It actually used to be most confident bridge in the world - always staying available, night
+				or day, rain or sun.
+			</p>
+			<p class="m-2 text-2xl md:text-3xl">
+				But one day, it rained a lot, the river flooded, and the bridge couldn't open, it was stuck
+				from not moving.
+			</p>
+			<p class="m-2 text-2xl md:text-3xl">
+				All the other bridges laughed at it, as it got submerged, unable to do anything.
+			</p>
+			<p class="m-2 text-2xl md:text-3xl">Ever since, it has never been the same</p>
+		</Typewriter>
+	</section>
 </div>
 
 <style>
