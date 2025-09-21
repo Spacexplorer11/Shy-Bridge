@@ -31,8 +31,8 @@
 	});
 </script>
 
-<div class="@container overflow-hidden text-center">
-	<Typewriter>
+<div class="@container my-2 flex min-h-screen min-w-full flex-col overflow-x-hidden text-center">
+	<Typewriter cursor={false}>
 		<h1 class="text-4xl md:text-5xl"><span class="hover:opacity-5">Shy Bridge</span></h1>
 	</Typewriter>
 	<div
@@ -92,7 +92,8 @@
 	</div>
 
 	<section id="lore">
-		<Typewriter delay="2000" mode="cascade">
+		<h1 class="text-4xl md:text-5xl">Read the Lore!</h1>
+		<Typewriter mode="cascade" cursor={false}>
 			<p class="m-2 text-2xl md:text-3xl">A bridge that is too shy to show itself.</p>
 			<p class="m-2 text-2xl md:text-3xl">Unfortunately it doesn't have much self-confidence</p>
 			<p class="m-2 text-2xl md:text-3xl">
@@ -115,6 +116,8 @@
 	#shy-bridge #shy-bridge-half-1,
 	#shy-bridge #shy-bridge-half-2 {
 		transition: transform 1s ease-in-out;
+		will-change: transform;
+		transform: translateZ(0);
 	}
 
 	#shy-bridge {
@@ -154,6 +157,8 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		transition: opacity 0.3s ease;
+		will-change: opacity;
+		z-index: 9999;
 	}
 
 	#shy-bridge:hover #shy-text {
@@ -174,5 +179,10 @@
 
 	#shy-bridge:hover #shy-bridge-half-2 {
 		transform: translateX(100%);
+	}
+
+	#lore {
+		min-height: 300px;
+		overflow-y: auto;
 	}
 </style>
