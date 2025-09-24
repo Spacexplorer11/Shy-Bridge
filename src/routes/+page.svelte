@@ -48,7 +48,7 @@
 			title="Go to scene 99"
 			class="rounded-xl bg-yellow-500 px-5 py-10 hover:scale-[1.03] hover:bg-yellow-600 hover:shadow-2xl"
 			onclick={() => {
-				window.location.href = "/scenes/99";
+				window.location.href = "https://summer.hackclub.com/s?scene=99";
 			}}
 		>
 			<ArrowLeft />
@@ -80,7 +80,7 @@
 			title="Go to scene 92"
 			class="rounded-xl bg-amber-500 px-5 py-10 hover:scale-[1.03] hover:bg-amber-600 hover:shadow-2xl"
 			onclick={() => {
-				window.location.href = "/scenes/92";
+				window.location.href = "https://summer.hackclub.com/s?scene=92";
 			}}
 		>
 			<ArrowRight />
